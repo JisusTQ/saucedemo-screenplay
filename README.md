@@ -68,7 +68,7 @@ saucedemo-screenplay/
 
 ---
 
-## Las capas del patrón Screenplay (para la sustentación)
+## Las capas del patrón Screenplay
 
 El actor **Carlos** ejecuta la prueba. El flujo va de lo abstracto a lo concreto:
 
