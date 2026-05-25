@@ -28,6 +28,18 @@ public class CartPage {
                 .locatedBy("//div[@class='inventory_item_name'][normalize-space()='" + productName + "']");
     }
 
+    /**
+     * Boton "Remove" que aparece dentro de cada item del carrito (en /cart.html).
+     * Permite quitar el producto estando ya en la pagina del carrito.
+     *
+     * @param productDataTestId  parte del data-test del boton remove,
+     *                           en minusculas con guiones (ej: "sauce-labs-backpack").
+     */
+    public static Target removeButtonOf(String productDataTestId) {
+        return Target.the("boton eliminar del carrito de " + productDataTestId)
+                .locatedBy("[data-test='remove-" + productDataTestId + "']");
+    }
+
     /** Boton "Checkout" para proceder al pago. */
     public static final Target CHECKOUT_BUTTON =
             Target.the("boton checkout").locatedBy("[data-test='checkout']");

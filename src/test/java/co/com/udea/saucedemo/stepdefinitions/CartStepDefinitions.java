@@ -8,6 +8,7 @@ import co.com.udea.saucedemo.questions.CartTitle;
 import co.com.udea.saucedemo.tasks.AddProductToCart;
 import co.com.udea.saucedemo.tasks.GoToCart;
 import co.com.udea.saucedemo.tasks.RemoveProductFromCart;
+import co.com.udea.saucedemo.tasks.RemoveProductFromCartPage;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
@@ -35,6 +36,13 @@ public class CartStepDefinitions {
     public void eliminaElProducto(String productDataTestId) {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 RemoveProductFromCart.withId(productDataTestId)
+        );
+    }
+
+    @Cuando("elimina el producto {string} desde la pagina del carrito")
+    public void eliminaElProductoDesdeElCarrito(String productDataTestId) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                RemoveProductFromCartPage.withId(productDataTestId)
         );
     }
 
@@ -74,6 +82,13 @@ public class CartStepDefinitions {
         }
         OnStage.theActorInTheSpotlight().should(
                 seeThat("el producto en el carrito", CartContainsProduct.named(nombreProducto), is(true))
+        );
+    }
+
+    @Entonces("el carrito no deberia contener el producto {string}")
+    public void elCarritoNoDeberiaContener(String nombreProducto) {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat("el producto en el carrito", CartContainsProduct.named(nombreProducto), is(false))
         );
     }
 
