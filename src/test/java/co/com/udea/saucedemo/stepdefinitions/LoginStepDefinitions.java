@@ -1,6 +1,7 @@
 package co.com.udea.saucedemo.stepdefinitions;
 
 import co.com.udea.saucedemo.tasks.Logout;
+import co.com.udea.saucedemo.ui.LoginPage;
 import co.com.udea.saucedemo.questions.ErrorMessage;
 import co.com.udea.saucedemo.questions.InventoryTitle;
 import co.com.udea.saucedemo.tasks.Login;
@@ -34,10 +35,18 @@ public class LoginStepDefinitions {
     @After
     public void limpiarEscenario() {
         try {
-            // Hace logout para limpiar el carrito en el servidor antes de cerrar
-            OnStage.theActorInTheSpotlight().attemptsTo(Logout.fromTheApplication());
+            // 1. Verificamos si el mensaje de error de login ESTÁ visible en la pantalla
+            boolean loginFallo = LoginPage.ERROR_MESSAGE
+                    .resolveFor(OnStage.theActorInTheSpotlight())
+                    .isVisible();
+
+            // 2. Si el login NO falló, significa que entramos a la app y debemos limpiar la
+            // sesión
+            if (!loginFallo) {
+                OnStage.theActorInTheSpotlight().attemptsTo(Logout.fromTheApplication());
+            }
         } catch (Exception ignored) {
-            // Si el logout falla (ej: escenario de login fallido), ignorar
+            // Protege el flujo por si el navegador se cierra antes de tiempo
         }
         OnStage.drawTheCurtain();
     }
@@ -50,21 +59,18 @@ public class LoginStepDefinitions {
     @Cuando("intenta iniciar sesion con el usuario {string} y la contrasena {string}")
     public void intentaIniciarSesion(String usuario, String contrasena) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                Login.withCredentials(usuario, contrasena)
-        );
+                Login.withCredentials(usuario, contrasena));
     }
 
     @Entonces("deberia ver la pagina de productos")
     public void deberiaVerLaPaginaDeProductos() {
         OnStage.theActorInTheSpotlight().should(
-                seeThat("el titulo de la pagina", InventoryTitle.text(), equalTo("Products"))
-        );
+                seeThat("el titulo de la pagina", InventoryTitle.text(), equalTo("Products")));
     }
 
     @Entonces("deberia ver el mensaje de error {string}")
     public void deberiaVerElMensajeDeError(String mensajeEsperado) {
         OnStage.theActorInTheSpotlight().should(
-                seeThat("el mensaje de error", ErrorMessage.text(), containsString(mensajeEsperado))
-        );
+                seeThat("el mensaje de error", ErrorMessage.text(), containsString(mensajeEsperado)));
     }
 }
