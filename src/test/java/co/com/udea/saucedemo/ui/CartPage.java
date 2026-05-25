@@ -9,6 +9,10 @@ import net.serenitybdd.screenplay.targets.Target;
  */
 public class CartPage {
 
+    /** Titulo visible de la pagina del carrito. En Swag Labs dice "Your Cart". */
+    public static final Target PAGE_TITLE =
+            Target.the("titulo de la pagina del carrito").locatedBy(".title");
+
     /** Lista de items dentro del carrito. */
     public static final Target CART_ITEMS =
             Target.the("items en el carrito").locatedBy(".cart_item");

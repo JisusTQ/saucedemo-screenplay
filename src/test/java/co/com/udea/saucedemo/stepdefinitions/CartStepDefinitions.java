@@ -3,6 +3,8 @@ package co.com.udea.saucedemo.stepdefinitions;
 import co.com.udea.saucedemo.questions.CartBadgeCount;
 import co.com.udea.saucedemo.questions.CartBadgeVisible;
 import co.com.udea.saucedemo.questions.CartContainsProduct;
+import co.com.udea.saucedemo.questions.CartItemCount;
+import co.com.udea.saucedemo.questions.CartTitle;
 import co.com.udea.saucedemo.tasks.AddProductToCart;
 import co.com.udea.saucedemo.tasks.GoToCart;
 import co.com.udea.saucedemo.tasks.RemoveProductFromCart;
@@ -33,6 +35,27 @@ public class CartStepDefinitions {
     public void eliminaElProducto(String productDataTestId) {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 RemoveProductFromCart.withId(productDataTestId)
+        );
+    }
+
+    @Cuando("ve el carrito de compras")
+    public void veElCarritoDeCompras() {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                GoToCart.page()
+        );
+    }
+
+    @Entonces("deberia ver la pagina del carrito de compras")
+    public void deberiaVerLaPaginaDelCarrito() {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat("el titulo de la pagina del carrito", CartTitle.text(), equalTo("Your Cart"))
+        );
+    }
+
+    @Entonces("el carrito deberia mostrar {int} producto(s)")
+    public void elCarritoDeberiaMostrarProductos(Integer cantidad) {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat("la cantidad de productos en el carrito", CartItemCount.displayed(), equalTo(cantidad))
         );
     }
 
