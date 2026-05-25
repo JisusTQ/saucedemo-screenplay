@@ -8,13 +8,6 @@ import net.serenitybdd.screenplay.actions.Click;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-/**
- * INTERACTION: hace clic en el boton "Remove" de un producto estando ya dentro
- * de la pagina del carrito (/cart.html).
- * <p>
- * Se diferencia de {@link ClickRemoveFromCart}, que elimina desde la pagina de
- * inventario: aqui el boton vive dentro del item listado en el carrito.
- */
 public class ClickRemoveFromCartPage implements Interaction {
 
     private final String productDataTestId;
@@ -31,10 +24,6 @@ public class ClickRemoveFromCartPage implements Interaction {
         );
     }
 
-    /**
-     * Metodo fabrica legible.
-     * Uso: ClickRemoveFromCartPage.forProduct("sauce-labs-backpack")
-     */
     public static ClickRemoveFromCartPage forProduct(String productDataTestId) {
         return instrumented(ClickRemoveFromCartPage.class, productDataTestId);
     }

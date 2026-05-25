@@ -6,12 +6,6 @@ import net.serenitybdd.screenplay.Question;
 
 import java.util.List;
 
-/**
- * QUESTION: verifica si un producto especifico esta presente en el carrito.
- * <p>
- * Busca el nombre del producto en el texto de todos los items del carrito.
- * Mas robusto que isVisible() porque no depende del estado visual del elemento.
- */
 public class CartContainsProduct implements Question<Boolean> {
 
     private final String productName;

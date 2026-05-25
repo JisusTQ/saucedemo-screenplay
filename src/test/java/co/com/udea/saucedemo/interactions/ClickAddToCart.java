@@ -8,20 +8,6 @@ import net.serenitybdd.screenplay.actions.Click;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-/**
- * INTERACTION: hace clic en el boton "Add to cart" de un producto especifico.
- * <p>
- * Recibe el identificador del producto tal como aparece en el atributo
- * data-test del boton. Ejemplos de valores validos:
- * <ul>
- *   <li>"sauce-labs-backpack"</li>
- *   <li>"sauce-labs-bike-light"</li>
- *   <li>"sauce-labs-bolt-t-shirt"</li>
- *   <li>"sauce-labs-fleece-jacket"</li>
- *   <li>"sauce-labs-onesie"</li>
- *   <li>"test.allthethings()-t-shirt-(red)"</li>
- * </ul>
- */
 public class ClickAddToCart implements Interaction {
 
     private final String productDataTestId;
@@ -38,10 +24,6 @@ public class ClickAddToCart implements Interaction {
         );
     }
 
-    /**
-     * Metodo fabrica legible.
-     * Uso: ClickAddToCart.forProduct("sauce-labs-backpack")
-     */
     public static ClickAddToCart forProduct(String productDataTestId) {
         return instrumented(ClickAddToCart.class, productDataTestId);
     }

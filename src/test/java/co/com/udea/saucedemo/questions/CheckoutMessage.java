@@ -5,10 +5,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 
-/**
- * QUESTION: devuelve el mensaje de exito en la pantalla final de confirmacion
- * de compra.
- */
 public class CheckoutMessage implements Question<String> {
 
     public static CheckoutMessage text() {

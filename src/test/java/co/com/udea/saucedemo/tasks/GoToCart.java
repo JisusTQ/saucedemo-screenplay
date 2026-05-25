@@ -8,12 +8,6 @@ import net.serenitybdd.screenplay.actions.Click;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-/**
- * TASK: "ir al carrito de compras".
- * <p>
- * Hace clic en el icono del carrito en la barra de navegacion para
- * navegar a la pagina /cart.html y poder verificar su contenido.
- */
 public class GoToCart implements Task {
 
     @Override
@@ -24,7 +18,6 @@ public class GoToCart implements Task {
         );
     }
 
-    /** Metodo fabrica legible. Uso: GoToCart.page() */
     public static GoToCart page() {
         return instrumented(GoToCart.class);
     }

@@ -7,12 +7,6 @@ import net.serenitybdd.screenplay.Task;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-/**
- * TASK: "eliminar un producto del carrito".
- * <p>
- * Hace clic en el boton "Remove" del producto indicado desde la pagina
- * de inventario. El detalle tecnico vive en {@link ClickRemoveFromCart}.
- */
 public class RemoveProductFromCart implements Task {
 
     private final String productDataTestId;
@@ -29,10 +23,6 @@ public class RemoveProductFromCart implements Task {
         );
     }
 
-    /**
-     * Metodo fabrica legible.
-     * Uso: RemoveProductFromCart.withId("sauce-labs-backpack")
-     */
     public static RemoveProductFromCart withId(String productDataTestId) {
         return instrumented(RemoveProductFromCart.class, productDataTestId);
     }

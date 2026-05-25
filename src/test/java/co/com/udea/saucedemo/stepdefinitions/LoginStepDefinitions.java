@@ -17,14 +17,7 @@ import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
-/**
- * STEP DEFINITIONS: conecta los pasos de login.feature y cart.feature
- * con el patron Screenplay.
- * <p>
- * El @Before inicializa el stage. Los steps Dado/Cuando de login son
- * reutilizados por cart.feature, garantizando que el stage siempre
- * este listo antes de cualquier accion sobre el carrito.
- */
+
 public class LoginStepDefinitions {
 
     @Before
@@ -35,18 +28,14 @@ public class LoginStepDefinitions {
     @After
     public void limpiarEscenario() {
         try {
-            // 1. Verificamos si el mensaje de error de login ESTÁ visible en la pantalla
             boolean loginFallo = LoginPage.ERROR_MESSAGE
                     .resolveFor(OnStage.theActorInTheSpotlight())
                     .isVisible();
 
-            // 2. Si el login NO falló, significa que entramos a la app y debemos limpiar la
-            // sesión
             if (!loginFallo) {
                 OnStage.theActorInTheSpotlight().attemptsTo(Logout.fromTheApplication());
             }
         } catch (Exception ignored) {
-            // Protege el flujo por si el navegador se cierra antes de tiempo
         }
         OnStage.drawTheCurtain();
     }

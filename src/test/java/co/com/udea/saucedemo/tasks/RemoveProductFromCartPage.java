@@ -7,14 +7,6 @@ import net.serenitybdd.screenplay.Task;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-/**
- * TASK: "eliminar un producto estando dentro del carrito".
- * <p>
- * A diferencia de {@link RemoveProductFromCart} (que elimina desde el listado de
- * inventario), esta task asume que el actor ya esta en la pagina del carrito
- * (/cart.html) y quita el producto desde alli. El detalle tecnico vive en
- * {@link ClickRemoveFromCartPage}.
- */
 public class RemoveProductFromCartPage implements Task {
 
     private final String productDataTestId;
@@ -30,11 +22,6 @@ public class RemoveProductFromCartPage implements Task {
                 ClickRemoveFromCartPage.forProduct(productDataTestId)
         );
     }
-
-    /**
-     * Metodo fabrica legible.
-     * Uso: RemoveProductFromCartPage.withId("sauce-labs-backpack")
-     */
     public static RemoveProductFromCartPage withId(String productDataTestId) {
         return instrumented(RemoveProductFromCartPage.class, productDataTestId);
     }

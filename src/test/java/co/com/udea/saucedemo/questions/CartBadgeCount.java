@@ -4,9 +4,6 @@ import co.com.udea.saucedemo.ui.InventoryPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-/**
- * QUESTION: devuelve el numero que muestra el badge del carrito.
- */
 public class CartBadgeCount implements Question<String> {
 
     @Override

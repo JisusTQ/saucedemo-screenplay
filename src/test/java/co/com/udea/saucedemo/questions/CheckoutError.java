@@ -5,10 +5,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 
-/**
- * QUESTION: devuelve el texto de la alerta de error cuando fallan las
- * validaciones del formulario.
- */
 public class CheckoutError implements Question<String> {
 
     public static CheckoutError message() {

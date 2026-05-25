@@ -10,18 +10,6 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import static org.hamcrest.Matchers.equalTo;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
-/**
- * STEP DEFINITIONS: conecta los pasos de checkout.feature con el patron
- * Screenplay.
- * <p>
- * Los steps de inicio de sesion y adicion de productos al carrito son
- * reutilizados
- * desde LoginStepDefinitions y CartStepDefinitions, permitiendo que este flujo
- * se concentre exclusivamente en el formulario de envio y la confirmacion del
- * pago.
- * <p>
- * El stage y el actor en escena ya vienen inicializados por los pasos previos.
- */
 public class CheckoutStepDefinitions {
     @Cuando("procede a realizar el pago con los datos {string}, {string} y {string}")
     public void procedeARealizarElPagoConLosDatos(String firstName, String lastName, String postalCode) {

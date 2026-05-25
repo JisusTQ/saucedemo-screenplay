@@ -7,20 +7,7 @@ import net.serenitybdd.screenplay.Task;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-/**
- * TASK: "agregar un producto al carrito".
- * <p>
- * Describe la intencion del negocio en lenguaje natural. El detalle tecnico
- * (cual boton hacer clic) vive en la Interaction {@link ClickAddToCart}.
- * <p>
- * El {@code productDataTestId} es la parte del atributo data-test del boton
- * "Add to cart" que identifica al producto. Ejemplos:
- * <ul>
- *   <li>"sauce-labs-backpack"</li>
- *   <li>"sauce-labs-bike-light"</li>
- *   <li>"sauce-labs-bolt-t-shirt"</li>
- * </ul>
- */
+
 public class AddProductToCart implements Task {
 
     private final String productDataTestId;
@@ -37,10 +24,6 @@ public class AddProductToCart implements Task {
         );
     }
 
-    /**
-     * Metodo fabrica legible.
-     * Uso: AddProductToCart.withId("sauce-labs-backpack")
-     */
     public static AddProductToCart withId(String productDataTestId) {
         return instrumented(AddProductToCart.class, productDataTestId);
     }
