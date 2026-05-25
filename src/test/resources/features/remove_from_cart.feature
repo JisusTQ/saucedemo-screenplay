@@ -7,7 +7,7 @@ Característica: Eliminar productos del carrito de compras en Swag Labs
   @carrito @rutaFeliz
   Escenario: Eliminar un producto desde la pagina del carrito
     Dado que "Carlos" esta en la pagina de inicio de Swag Labs
-    Cuando intenta iniciar sesion con el usuario "standard_user" y la contrasena "secret_sauce"
+    Cuando intenta iniciar sesion con el usuario "standard_user" y la contraseña "secret_sauce"
     Y agrega el producto "sauce-labs-backpack" al carrito
     Y ve el carrito de compras
     Cuando elimina el producto "sauce-labs-backpack" desde la pagina del carrito
@@ -17,7 +17,7 @@ Característica: Eliminar productos del carrito de compras en Swag Labs
   @carrito @rutaFeliz
   Escenario: Eliminar solo uno de varios productos del carrito
     Dado que "Carlos" esta en la pagina de inicio de Swag Labs
-    Cuando intenta iniciar sesion con el usuario "standard_user" y la contrasena "secret_sauce"
+    Cuando intenta iniciar sesion con el usuario "standard_user" y la contraseña "secret_sauce"
     Y agrega el producto "sauce-labs-backpack" al carrito
     Y agrega el producto "sauce-labs-bike-light" al carrito
     Y ve el carrito de compras
@@ -29,7 +29,7 @@ Característica: Eliminar productos del carrito de compras en Swag Labs
   @carrito @rutaExcepcional
   Escenario: Vaciar el carrito eliminando todos los productos
     Dado que "Carlos" esta en la pagina de inicio de Swag Labs
-    Cuando intenta iniciar sesion con el usuario "standard_user" y la contrasena "secret_sauce"
+    Cuando intenta iniciar sesion con el usuario "standard_user" y la contraseña "secret_sauce"
     Y agrega el producto "sauce-labs-backpack" al carrito
     Y agrega el producto "sauce-labs-bike-light" al carrito
     Y ve el carrito de compras

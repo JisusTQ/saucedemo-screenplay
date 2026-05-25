@@ -6,11 +6,11 @@ Característica: Inicio de sesión en Swag Labs
   @login @rutaFeliz
   Escenario: Inicio de sesión exitoso con credenciales válidas
     Dado que "Carlos" esta en la pagina de inicio de Swag Labs
-    Cuando intenta iniciar sesion con el usuario "standard_user" y la contrasena "secret_sauce"
+    Cuando intenta iniciar sesion con el usuario "standard_user" y la contraseña "secret_sauce"
     Entonces deberia ver la pagina de productos
 
   @login @rutaExcepcional
   Escenario: Inicio de sesión fallido con un usuario bloqueado
     Dado que "Carlos" esta en la pagina de inicio de Swag Labs
-    Cuando intenta iniciar sesion con el usuario "locked_out_user" y la contrasena "secret_sauce"
+    Cuando intenta iniciar sesion con el usuario "locked_out_user" y la contraseña "secret_sauce"
     Entonces deberia ver el mensaje de error "Sorry, this user has been locked out"
