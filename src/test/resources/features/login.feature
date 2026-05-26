@@ -1,3 +1,4 @@
+# language: es
 Característica: Inicio de sesión en Swag Labs
   Como cliente de la tienda en línea Swag Labs
   Quiero iniciar sesión en la plataforma
